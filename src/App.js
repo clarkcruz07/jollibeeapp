@@ -1,23 +1,50 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react'
+import Staff from './components/staff/Staff'
+import Rider from './components/rider/Rider'
+import Grab from './components/staff/components/Grab'
+import FoodPanda from './components/staff/components/FoodPanda'
+import Jollibee from './components/staff/components/Jollibee'
+import OpenDoor from './components/staff/components/OpenDoor'
+import Doors from './components/rider/components/Doors'
 
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <Router>
+          <Routes>
+              <Route
+                path="/Staff//*"
+                element={ <Staff /> }
+              />
+               <Route 
+                path='/grab'
+                element={ <Grab /> }/>
+                <Route 
+                path='/foodpanda'
+                element={ <FoodPanda /> }/>
+                <Route 
+                path='/jollibee'
+                element={ <Jollibee /> }/>
+                <Route 
+                path='/grab/opendoor'
+                element={ <OpenDoor />} />
+                 <Route 
+                path='/foodpanda/opendoor'
+                element={ <OpenDoor />} />
+                 <Route 
+                path='/jollibee/opendoor'
+                element={ <OpenDoor />} />
+              <Route 
+                path='/rider//*'
+                element={ <Rider /> }/>
+                 <Route 
+                path='/rider/doors'
+                element={ <Doors /> }/>
+                
+          </Routes>
+        </Router>
     </div>
   );
 }
